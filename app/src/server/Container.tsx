@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from "react";
 
 const Container = ({ children }: { children: any }) => (
   <html>
@@ -8,9 +8,7 @@ const Container = ({ children }: { children: any }) => (
     </head>
 
     <body>
-      <main id="app">
-        {children}
-      </main>
+      <main id="app">{children}</main>
     </body>
   </html>
 );

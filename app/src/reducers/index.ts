@@ -1,7 +1,23 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from "redux";
 
-import auth from './auth';
+import newNote, { NewNoteState } from "./newNote";
+import notes, { NotesState } from "./notes";
 
-export default combineReducers({
-  auth
-});
+export { NewNoteState, NotesState };
+
+export interface State {
+  newNote: NewNoteState;
+  notes: NotesState;
+}
+
+export interface Reducers {
+  newNote: () => NewNoteState;
+  notes: () => NotesState;
+}
+
+const combined: Reducers = {
+  newNote,
+  notes
+};
+
+export default combineReducers(combined);

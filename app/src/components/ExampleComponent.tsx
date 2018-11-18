@@ -1,7 +1,5 @@
-import * as React from 'react';
+import * as React from "react";
 
-const ExampleComponent = () => (
-  <div>Hello</div>
-)
+const ExampleComponent = () => <div>Hello</div>;
 
 export default ExampleComponent;
