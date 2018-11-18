@@ -1,0 +1,1 @@
+This folder is for _integration_ tests (stuff that talks to a DB or otherwise uses multiple components of the app). Unit tests should be placed in `.test.tsx` files next to the file you want to test.
