@@ -11,11 +11,17 @@ export default class NoteEditor extends React.PureComponent<
   NoteEditorProps,
   any
 > {
-  handleChange = (e: any) => {
+  handleChangeContent = (e: any) => {
     const content = e.target.value;
 
     this.props.onChange({ ...this.props.note, content });
-  };
+  }
+
+  handleChangeTitle = (e: any) => {
+    const title = e.target.value;
+
+    this.props.onChange({ ...this.props.note, title });
+  }
 
   handleDone = () => {
     this.props.onDone();
@@ -24,8 +30,10 @@ export default class NoteEditor extends React.PureComponent<
   render() {
     return (
       <div className="note-editor">
+        <input type="text" onChange={this.handleChangeTitle} value={this.props.note.title} />
+
         <textarea
-          onChange={this.handleChange}
+          onChange={this.handleChangeContent}
           value={this.props.note.content}
         />
 
