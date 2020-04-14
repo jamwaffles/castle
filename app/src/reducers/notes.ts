@@ -1,8 +1,8 @@
 import { NEW_NOTE_CREATE_SUCCESS, NewNoteCreateSuccess } from "../actions";
-import { Note } from "../types";
+import { AnyNote } from "../types";
 
 export interface NotesState {
-  notes: Note[];
+  notes: AnyNote[];
 }
 
 export const defaultState: NotesState = { notes: [] };

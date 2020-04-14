@@ -1,28 +1,27 @@
 import {
   NEW_NOTE_CHANGE,
-  NEW_NOTE_CREATE,
   NEW_NOTE_CREATE_SUCCESS,
   NewNoteChange,
-  NewNoteCreate,
   NewNoteCreateSuccess
 } from "../actions";
-import { NewNote } from "../types";
+import { AnyNote } from "../types";
+import { Option, None, Some } from 'funfix';
 
 export interface NewNoteState {
-  note: NewNote;
+  note: Option<AnyNote>;
 }
 
-export const defaultState: NewNoteState = { note: { title: "", content: "" } };
+export const defaultState: NewNoteState = { note: None };
 
 export default function auth(
   state = defaultState,
-  action = {} as NewNoteChange | NewNoteCreate | NewNoteCreateSuccess
+  action: NewNoteChange | NewNoteCreateSuccess = {} as any
 ): NewNoteState {
   switch (action.type) {
     case NEW_NOTE_CHANGE:
       return {
         ...state,
-        note: action.note
+        note: Some(action.note)
       };
 
     case NEW_NOTE_CREATE_SUCCESS:

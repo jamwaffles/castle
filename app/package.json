@@ -32,6 +32,7 @@
     "@types/webpack": "^4.4.19",
     "@types/webpack-dev-middleware": "^2.0.2",
     "classnames": "^2.2.6",
+    "funfix": "^7.0.1",
     "koa": "^2.6.2",
     "koa-static-cache": "^5.1.2",
     "koa-webpack": "^5.1.1",
