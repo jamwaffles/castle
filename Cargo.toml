@@ -1,4 +1,7 @@
 [workspace]
 members = [
-    "app"
+    # "app",
+    "core",
+    "cli",
+    "playground"
 ]
