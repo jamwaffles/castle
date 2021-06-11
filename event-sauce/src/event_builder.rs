@@ -22,6 +22,11 @@ where
             },
         }
     }
+
+    /// Consume the builder and produce an event.
+    pub fn build(self) -> Event<D> {
+        Event::from(self.event)
+    }
 }
 
 /// Blanket impl to convert event data into an event.

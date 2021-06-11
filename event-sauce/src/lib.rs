@@ -219,6 +219,49 @@ mod tests {
 
         dbg!(storage);
     }
+
+    #[test]
+    fn event_builder() {
+        #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+        struct User {
+            name: String,
+            email: String,
+        }
+
+        impl Entity for User {
+            const ENTITY_TYPE: &'static str = "users";
+
+            fn entity_id(&self) -> Uuid {
+                Uuid::nil()
+            }
+        }
+
+        #[derive(serde::Serialize, serde::Deserialize)]
+        struct UserCreated {
+            name: String,
+            email: String,
+        }
+
+        impl EventData for UserCreated {
+            type Entity = User;
+
+            fn event_type() -> &'static str {
+                "UserCreated"
+            }
+        }
+
+        let entity_id = Uuid::new_v4();
+
+        let event = UserCreated {
+            name: String::new(),
+            email: String::new(),
+        }
+        .into_builder()
+        .entity_id(entity_id)
+        .build();
+
+        assert_eq!(event.entity_id, entity_id);
+    }
 }
 
 // trait FallibleCreate<Evt>: Sized
