@@ -69,6 +69,9 @@ where
     fn create_from(event: &Event<D>) -> Self;
 }
 
+/// Create a [`Persister`] from an event.
+///
+/// This trait may not be implemented by consuming code. See the [`Create`] trait instead.
 pub trait CreatePersister<D>: Create<D>
 where
     D: EventData,
@@ -100,7 +103,7 @@ where
     pub entity: E,
 }
 
-pub trait Persistable<S, Out = Self>: Sized
+pub trait Persistable<S, Out = Self>
 where
     S: Storage,
 {

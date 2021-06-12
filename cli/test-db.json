@@ -1,0 +1,27 @@
+{
+  "events": [
+    {
+      "id": "065d30ca-f3ba-4252-90c2-ca8f6eba7b74",
+      "event_type": "TextNoteCreated",
+      "entity_type": "Note",
+      "entity_id": "3404625e-475a-4aee-8abb-ea0fb064dbc6",
+      "data": {
+        "body": "Second",
+        "title": "More!"
+      },
+      "session_id": "00000000-0000-0000-0000-000000000000",
+      "created_at": "2021-06-12T14:04:17.148285399Z"
+    }
+  ],
+  "notes": [
+    {
+      "id": "3404625e-475a-4aee-8abb-ea0fb064dbc6",
+      "session_id": "00000000-0000-0000-0000-000000000000",
+      "title": "More!",
+      "note_type": "Text",
+      "body": "Second",
+      "created_at": "2021-06-12T14:04:17.148285399Z",
+      "updated_at": "2021-06-12T14:04:17.148285399Z"
+    }
+  ]
+}

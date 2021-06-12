@@ -6,7 +6,7 @@ use std::convert::TryFrom;
 use uuid::Uuid;
 
 /// Internal event definition
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 #[cfg_attr(feature = "sqlx", derive(sqlx::FromRow))]
 pub struct DBEvent {
     /// Event ID

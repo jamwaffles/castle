@@ -1,5 +1,5 @@
 [package]
-name = "core"
+name = "castle-core"
 version = "0.1.0"
 authors = ["James Waples <james@wapl.es>"]
 edition = "2018"
@@ -7,3 +7,9 @@ edition = "2018"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+event-sauce = { path = "../event-sauce" }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0.64"
+uuid = { version = "0.8.2", features = [ "serde" ] }
+chrono = { version = "0.4.19", features = [ "serde" ] }
+thiserror = "1.0.25"
