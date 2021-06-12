@@ -3,6 +3,7 @@ mod events;
 use chrono::{DateTime, Utc};
 use event_sauce::{Create, Entity, Event, Persistable, Storage};
 pub use events::*;
+use std::fmt;
 use uuid::Uuid;
 
 use crate::storage::FileStorage;
@@ -12,6 +13,14 @@ use crate::storage::FileStorage;
 pub enum NoteBody {
     Text(String),
     // TODO: List, etc
+}
+
+impl fmt::Display for NoteBody {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        match self {
+            Self::Text(body) => f.write_str(body),
+        }
+    }
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]

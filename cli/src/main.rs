@@ -11,11 +11,13 @@ use structopt::StructOpt;
 enum Command {
     /// Create a new note.
     Add { title: String },
+
+    /// List notes.
+    List,
 }
 
 fn main() {
     let command = Command::from_args();
-    println!("{:?}", command);
 
     let mut storage = FileStorage::open("./test-db.json").unwrap();
 
@@ -46,6 +48,20 @@ fn main() {
             dbg!(note);
 
             println!("Note saved");
+        }
+        Command::List => {
+            println!("{} notes\n", storage.items.notes.len());
+
+            println!(
+                "{}",
+                storage
+                    .items
+                    .notes
+                    .iter()
+                    .map(|note| format!("# {}\n\n{}", note.title, note.body))
+                    .collect::<Vec<_>>()
+                    .join("\n\n---\n\n")
+            );
         }
     }
 }

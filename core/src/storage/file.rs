@@ -19,19 +19,20 @@ pub enum FileStorageError {
 }
 
 #[derive(Default, Debug, serde::Deserialize, serde::Serialize)]
-struct Items {
+#[non_exhaustive]
+pub struct Items {
     #[serde(default)]
     events: Vec<DBEvent>,
 
     #[serde(default)]
-    notes: Vec<Note>,
+    pub notes: Vec<Note>,
 }
 
 #[derive(Debug)]
 pub struct FileStorage {
     path: PathBuf,
 
-    items: Items,
+    pub items: Items,
 }
 
 impl FileStorage {
