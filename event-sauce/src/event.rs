@@ -39,7 +39,10 @@ where
     pub created_at: DateTime<Utc>,
 }
 
-impl<S: EventData + for<'de> Deserialize<'de>> TryFrom<DBEvent> for Event<S> {
+impl<S> TryFrom<DBEvent> for Event<S>
+where
+    S: EventData + for<'de> Deserialize<'de>,
+{
     type Error = serde_json::Error;
 
     /// Attempt to decode a [`DBEvent`] into an `Event`

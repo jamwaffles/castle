@@ -38,7 +38,10 @@ pub struct DBEvent {
     pub created_at: DateTime<Utc>,
 }
 
-impl<S: EventData + serde::Serialize> TryFrom<Event<S>> for DBEvent {
+impl<S> TryFrom<Event<S>> for DBEvent
+where
+    S: EventData + serde::Serialize,
+{
     type Error = serde_json::Error;
 
     /// Attempt to convert an [`Event`] into a `DBEvent`
